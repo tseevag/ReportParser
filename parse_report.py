@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
+import sys
 import json
 import docx
 from docx.shared import Pt, Inches, RGBColor
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
-file_name = "" #path to file
+# file_name = "/mnt/c/audit/GoLend/Infra/ZeusCloud_reort.json" #path to file
+
+if (len(sys.argv) < 2):
+    print("Usage error: ZeusCloud report file is required.")
+    exit(1)
+
+file_name = sys.argv[1]
 
 severity_to_num = {
         "Critical": 5,
